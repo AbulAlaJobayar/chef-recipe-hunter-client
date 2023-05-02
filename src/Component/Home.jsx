@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Lottie from "lottie-react";
 import cooking from "../assets/cooking.json";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
 
                     <p className='mt-4 text-secondary'>A food restaurant chef creates delicious and visually appealing meals, designs menus, selects ingredients, and supervises kitchen staff. They have a passion for food, an eye for detail, and an ability to work well under pressure.</p>
                    </div>
-                   <Button variant="warning" className='text-white fw-bold mt-3'>Order Now</Button>
+                   <Button variant="warning" className='text-white fw-bold mt-3'>Order Now <FaLongArrowAltRight></FaLongArrowAltRight></Button>
                 </Col>
                 <Col xs={12} md={6}>
                 <Lottie animationData={cooking} loop={true} />;
