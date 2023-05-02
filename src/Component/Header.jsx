@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
+    const {user}=useContext(AuthContext)
+    console.log(user)
     return (
         <Container>
             <Navbar bg="light" expand="lg" className='px-4'>
-                <Navbar.Brand href="#" className='fst-italic fs-3 text-warning '>Damn Delicious</Navbar.Brand>
+                <Navbar.Brand href="#" className='fst-italic fs-3 text-warning fw-bold'>Damn Delicious</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -15,12 +18,13 @@ const Header = () => {
                     >
                         <Nav.Link href="#action1">Home</Nav.Link>
                         <Nav.Link href="#action2">Blog</Nav.Link>
-                        <Nav.Link href="#" > Link </Nav.Link>
                     </Nav>
-                    <span>
-                        <img src="" alt="" />
-                        <Button variant="secondary">Login</Button>
-                    </span>
+                    {
+                        user?<>
+                        <Button variant="secondary">Logout</Button>
+                        
+                    </>:<><Button variant="secondary">Login</Button></>
+                    }
                     
                 </Navbar.Collapse>
             </Navbar>
