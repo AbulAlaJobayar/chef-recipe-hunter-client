@@ -1,9 +1,10 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, {  useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaGoogle,FaGithub } from "react-icons/fa";
 const Register = () => {
-const {createUser} = useContext(AuthContext)
+const {createUser,singInWithGoogle,singInWithGithub} = useContext(AuthContext)
   const [error,setError]=useState('');
 
 const handleRegister=(event)=>{
@@ -24,17 +25,45 @@ const handleRegister=(event)=>{
   .then(result=>{
     const loggeduser=result.user;
     console.log(loggeduser);
+    
   })
   .catch(err=>{
     console.log(err.massage);
     setError(err.message);
   })
-
-
-
-  }
+}
     
+const handleGoogleSingin=()=>{
+  singInWithGoogle()
+  .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+  }).catch((error) => {
+    
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+}
 
+const handleGithubSingin=()=>{
+  singInWithGithub()
+  .then((result) => {
+   
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    const credential = GithubAuthProvider.credentialFromError(error);
+    // ...
+  });
+}
 
 
 
@@ -86,6 +115,10 @@ const handleRegister=(event)=>{
 
         </Form.Text>
       </Form>
+      <div className='d-flex gap-1'>
+      <Button variant="success" className='mt-2' onClick={handleGoogleSingin}><FaGoogle></FaGoogle> sing in with google</Button>
+      <Button variant="secondary" className='mt-2' onClick={handleGithubSingin}><FaGithub></FaGithub> sing in with github</Button>
+      </div>
     </Container>
   );
 };

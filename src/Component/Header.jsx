@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <Container>
             <Navbar bg="light" expand="lg" className='px-4'>
-                <Navbar.Brand href="#" className='fst-italic fs-3 text-warning fw-bold'>Damn Delicious</Navbar.Brand>
+                <Navbar.Brand href="/" className='fst-italic fs-3 text-warning fw-bold'>Damn Delicious</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -16,12 +16,12 @@ const Header = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="#action2">Blog</Nav.Link>
                     </Nav>
                     {
                         user?<>
-                        <Button variant="secondary">Logout</Button>
+                        <img src={user.photoURL} alt="" style={{width:'50px',height:'50px' ,borderRadius:'50%',cursor:'pointer'}}  title={user.displayName}/>
                         
                     </>:<><Button variant="secondary">Login</Button></>
                     }

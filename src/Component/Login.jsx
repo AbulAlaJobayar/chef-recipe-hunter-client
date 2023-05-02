@@ -11,6 +11,16 @@ const {singIn}=useContext(AuthContext)
   const form=event.target;
   const email=form.email.value;
   const password=form.password.value;
+  if (email, password){
+    singIn(email, password)
+    .then(result=>{
+      const singInUser=result.user;
+      
+    })
+    .catch(err=>{
+      console.log(err.message)
+    })
+  }
   
  }
     return (
