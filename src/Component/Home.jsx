@@ -22,7 +22,7 @@ const Home = () => {
     return (
 
         <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
-            <div className='lg:flex items-center gap-10'>
+            <div className='lg:flex items-center gap-10 mb-32'>
                 <div className='basis-1/2'>
                     <span className='text-5xl font-bold  text-gray-800 '>Fastest </span>
                     <span className='text-5xl font-bold text-amber-500 '> <br /> Delivery </span>
@@ -37,11 +37,13 @@ const Home = () => {
                     <button className="btn btn-warning text-white font-bold mt-5">Order Now <FaLongArrowAltRight></FaLongArrowAltRight></button>
                 </div>
                 <div className='basis-1/2'>
-                    <Lottie animationData={cooking} loop={true} />;
+                    <Lottie animationData={cooking} loop={true} />
                 </div>
             </div>
-            <div className='mt-16'>
-                <h1 className='text-3xl text-gray-800 font-bold text-center '>
+
+
+            <div className='mt-32'>
+                <h1 className='text-3xl text-gray-800 font-bold text-center mt-36 '>
                     Our Chef
                 </h1>
                 <hr className=' w-56 font-bold bg-black h-1 rounded mt-4 text-center mx-auto' />
@@ -53,7 +55,7 @@ const Home = () => {
                 }
             </div>
             {/* delivery food section */}
-            <div className='mt-16'>
+            <div className='mt-32'>
                 <h1 className='text-3xl text-gray-800 font-bold text-center '>
                     How we can serve you and <br />delivery your favorite food
                 </h1>
@@ -66,7 +68,7 @@ const Home = () => {
             </div>
 
             {/* carosel-Section */}
-            <div  className='mt-16'>
+            <div  className='mt-32 mb-16'>
                 <CaroselSection></CaroselSection>
             </div>
 
