@@ -4,7 +4,10 @@ import { Link, useLoaderData } from 'react-router-dom';
 const ChefDetails = () => {
     const data = useLoaderData({});
     console.log(data)
-    const { id, chef_name, chef_picture, like, number_of_recipes, years_of_experience, short_bio } = data
+    const { id, chef_name, chef_picture, like, number_of_recipes, years_of_experience, short_bio,recipes } = data;
+    console.log(recipes)
+
+
     return (
         <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-28 mb-20'>
             <div className="card card-side bg-base-100 shadow-xl grid grid-cols-2 ">
@@ -22,6 +25,12 @@ const ChefDetails = () => {
                     </div>
                 </div>
             </div>
+            <div>
+                {
+                  recipes.map(recipe=>)  
+                }
+            </div>
+
         </div>
     );
 };

@@ -36,12 +36,12 @@ const router = createBrowserRouter([
     {
       path:'/services',
       element:<Home></Home>,
-      loader:()=>fetch('http://localhost:5000/services')
+      loader:()=>fetch('https://assingment-10-server-abulalajobayar-gmailcom.vercel.app/services')
     },
     {
       path:':id',
       element:<PrivateRoutes><ChefDetails></ChefDetails></PrivateRoutes>,
-      loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+      loader:({params})=>fetch(`https://assingment-10-server-abulalajobayar-gmailcom.vercel.app/services/${params.id}`)
       
     }
   ],

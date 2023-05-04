@@ -14,7 +14,7 @@ const Home = () => {
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/delivery')
+        fetch('https://assingment-10-server-abulalajobayar-gmailcom.vercel.app/delivery')
             .then(res => res.json())
             .then(data => setData(data))
             .catch(err => console.error(err))
