@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
-// import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const { singIn, singInWithGoogle, singInWithGithub } = useContext(AuthContext)
 
+  const navigate=useNavigate();
+  const location=useLocation();
+  const from =location.state?.from?.pathname || "/";
+const [error,setError]=useState('')
+
   const handleLogin = (event) => {
     event.preventDefault();
+    setError('')
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -16,10 +21,11 @@ const Login = () => {
       singIn(email, password)
         .then(result => {
           const singInUser = result.user;
-
+          navigate(from,{replace:true})
         })
         .catch(err => {
           console.log(err.message)
+          setError(err.message)
         })
     }
 
@@ -84,6 +90,7 @@ const Login = () => {
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover text-base">Don't have an account? <Link to='/register' className='text-amber-500 font-bold'> Register</Link></a>
               </label>
+              <p className='text-red-400'>{error}</p>
           </form>
           <div className='flex flex-col'>
       <button className='mt-2 btn btn-primary' onClick={handleGoogleSingin}> <FaGoogle></FaGoogle> sing in with google</button>

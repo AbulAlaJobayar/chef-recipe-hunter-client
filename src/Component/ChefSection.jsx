@@ -1,12 +1,10 @@
 import React from 'react';
 import { FaArrowRight, FaStar } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ChefSection = ({ data }) => {
-    const navigate=useNavigate();
-
     const { id,chef_name,chef_picture,like,number_of_recipes,years_of_experience} = data
-    console.log(data);
+    
     return (
         <>
             <div className="card  bg-base-100 shadow-xl">
@@ -20,7 +18,9 @@ const ChefSection = ({ data }) => {
                     <p className='flex items-center text-amber-700 text-base font-bold'>Likes {like}</p>
 
                     <div className="card-actions justify-center w-full items-end">
-                        <button onClick={`navigate /${id}`} className="btn  w-full">View Recipe <FaArrowRight className='font-bold ml-2'></FaArrowRight></button>
+                        <Link to={`../${id}`} className="w-full">
+                        <button  className="btn  w-full">View Recipe <FaArrowRight className='font-bold ml-2'></FaArrowRight></button>
+                        </Link>
                     </div>
                     
                 </div>
