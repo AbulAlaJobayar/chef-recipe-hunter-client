@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFFile from './PDFFile';
+
 const Blog = () => {
     return (
         <div className='mt-20 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -167,6 +170,13 @@ const Blog = () => {
             </div>
 
 
+        
+            <div className="App">
+      <PDFDownloadLink document={<PDFFile />} filename="FORM">
+      {({loading}) => (loading ? <button>Loading Document...</button> : <button className='btn btn-primary mx-auto text-center text-3xl w-full mt-10 font-extrabold'>Download blog</button> )}
+      </PDFDownloadLink>
+    </div>
+        
         </div>
     );
 };
