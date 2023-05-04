@@ -7,6 +7,7 @@ import ServicesLayout from "../Layout/ServicesLayout";
 import Home from "../Component/Home";
 import ChefDetails from "../Component/ChefDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import Blog from "../Component/Blog";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Navigate to='/services'></Navigate>
+      },
+      {
+        path:'blog',
+        element:<Blog></Blog>,
       },
       {
         path: 'login',
